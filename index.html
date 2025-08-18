@@ -1,42 +1,93 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coleus Boutique - Accueil</title>
-  <!-- Styles globaux + accueil -->
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/accueil.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coleus Boutique – Accueil</title>
+  <meta name="description" content="Coléus rares et colorés, cultivés avec soin. Découvrez notre collection, nos conseils et notre passion des plantes d'intérieur." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/accueil.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
 
   <!-- Navigation -->
-  <nav class="nav">
-    <a href="index.html">Accueil</a>
-    <a href="products.html">Produits</a>
-    <a href="about.html">À propos</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="index.html" aria-label="Accueil Coleus Boutique">Coleus<span>Boutique</span></a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <ul id="nav-links" class="nav-links">
+        <li><a href="index.html" aria-current="page">Accueil</a></li>
+        <li><a href="products.html">Produits</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- Hero -->
-  <header class="hero">
+  <section class="hero" role="region" aria-label="Mise en avant">
     <div class="overlay">
       <h1>🌿 Bienvenue chez Coleus Boutique</h1>
       <p>Des coléus rares et colorés pour sublimer votre intérieur.</p>
-      <a href="products.html" class="btn-primary">Voir la collection</a>
+      <a class="btn-primary" href="products.html">Voir la collection</a>
     </div>
-  </header>
-
-  <!-- Section présentation -->
-  <section class="about">
-    <h2>Notre Passion</h2>
-    <p>Nous sélectionnons des coléus uniques et raffinés, pour vous offrir le meilleur du végétal.</p>
   </section>
 
-  <!-- Footer -->
+  <main id="main">
+    <!-- Intro / À propos court -->
+    <section class="about">
+      <h2>Notre passion</h2>
+      <p>Nous sélectionnons et multiplions des coléus uniques – feuillages panachés, nervures spectaculaires et ports compacts – pour des compositions qui font vibrer votre intérieur toute l’année.</p>
+    </section>
+
+    <!-- Produits mis en avant -->
+    <section class="featured" aria-labelledby="tit-fav">
+      <h2 id="tit-fav">Nos coups de cœur</h2>
+      <div class="product-grid">
+        <!-- Carte 1 -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1524594081293-190a2fe0baae?auto=format&fit=crop&w=900&q=70" alt="Coleus vert et pourpre en pot" loading="lazy" />
+          <h3>Coleus Emerald Flame</h3>
+          <p>Fort contraste vert/pourpre, idéal bord de fenêtre lumineux.</p>
+          <a class="btn-primary" href="products.html#emerald">Découvrir</a>
+        </article>
+        <!-- Carte 2 -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1491982883798-28f91f1f5a02?auto=format&fit=crop&w=900&q=70" alt="Feuillage coleus rose et bordeaux" loading="lazy" />
+          <h3>Coleus Ruby Kiss</h3>
+          <p>Rose profond et bord bordeaux, pousse compacte, très graphique.</p>
+          <a class="btn-primary" href="products.html#ruby">Découvrir</a>
+        </article>
+        <!-- Carte 3 -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1602192509154-0b9001c99ceb?auto=format&fit=crop&w=900&q=70" alt="Coleus vert clair panaché crème" loading="lazy" />
+          <h3>Coleus Lime Frost</h3>
+          <p>Panachure crème/vert lime, illumine les coins un peu ombragés.</p>
+          <a class="btn-primary" href="products.html#lime">Découvrir</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
   <footer class="footer">
     <p>&copy; 2025 Coleus Boutique. Tous droits réservés.</p>
   </footer>
 
+  <script>
+    // Menu burger accessible
+    const btn = document.querySelector('.nav-toggle');
+    const links = document.getElementById('nav-links');
+    btn?.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      links.classList.toggle('open');
+      document.body.classList.toggle('no-scroll', !expanded);
+    });
+  </script>
 </body>
 </html>
