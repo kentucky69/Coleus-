@@ -1,7 +1,1 @@
-/* =========================================================
-   ACCUEIL — styles spécifiques à index.html
-   ========================================================= */
-/* utilitaire accessibilité */
-.skip-link { position: absolute; left: -999px; top: auto; }
-.skip-link:focus { left: 12px; top: 12px; background:#198754; color:#fff; padding:8px 12px; border-radius:8px; z-index:1000; }
 

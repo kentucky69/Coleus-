@@ -7,7 +7,6 @@
   <meta name="description" content="Coléus rares et colorés, cultivés avec soin. Découvrez notre collection, nos conseils et notre passion des plantes d'intérieur." />
   <link rel="stylesheet" href="css/global.css"/>
   <link rel="stylesheet" href="css/intro.css" />
-  <link rel="stylesheet" href="css/accueil.css"/>
 </head>
 
 <body>
@@ -36,50 +35,64 @@
 ========================= -->
 <main id="main">
   <!-- SECTION — Intro / À propos modernisée -->
-  <section class="section section--intro" aria-labelledby="intro-title">
-    <div class="container">
-      <header class="section__header">
-        <p class="eyebrow">Notre passion</p>
-        <h2 id="intro-title" class="section__title">Des coléus d'exception, cultivés avec soin</h2>
-        <p class="section__subtitle">Variétés rares, feuillages panachés et ports compacts — pour un intérieur vivant toute l'année.</p>
-      </header>
+<section class="section section--intro" aria-labelledby="intro-title">
+  <div class="container">
+    <header class="section__header">
+      <p class="eyebrow">Notre passion</p>
+      <h2 id="intro-title" class="section__title">Des coléus d'exception, cultivés avec soin</h2>
+      <p class="section__subtitle">Variétés rares, feuillages panachés et ports compacts — pour un intérieur vivant toute l'année.</p>
+    </header>
 
-      <div class="split">
-        <div class="split__col">
-          <ul class="bullets">
-            <li>Multiplication maison : boutures saines, enracinement rapide.</li>
-            <li>Sélection couleurs : contrastes vert/pourpre, lime/crème, rose/bordeaux.</li>
-            <li>Conseils culture : lumière, arrosage, pincements & rempotage.</li>
-          </ul>
+    <div class="split">
+      <!-- Colonne texte -->
+      <div class="split__col">
+        <ul class="bullets">
+          <li>Multiplication maison : boutures saines, enracinement rapide.</li>
+          <li>Sélection couleurs : contrastes vert/pourpre, lime/crème, rose/bordeaux.</li>
+          <li>Conseils culture : lumière, arrosage, pincements & rempotage.</li>
+        </ul>
 
-          <div class="kpis" role="list" aria-label="Chiffres clés">
-            <div class="kpi" role="listitem">
-              <span class="kpi__value">+60</span>
-              <span class="kpi__label">cultivars suivis</span>
-            </div>
-            <div class="kpi" role="listitem">
-              <span class="kpi__value">98%</span>
-              <span class="kpi__label">clients satisfaits</span>
-            </div>
-            <div class="kpi" role="listitem">
-              <span class="kpi__value">72h</span>
-              <span class="kpi__label">expédition moyenne</span>
-            </div>
+        <div class="kpis" role="list" aria-label="Chiffres clés">
+          <div class="kpi" role="listitem">
+            <span class="kpi__value">+60</span>
+            <span class="kpi__label">cultivars suivis</span>
           </div>
-
-          <div class="cta-row">
-            <a class="btn-primary" href="products.html">Découvrir la collection</a>
-            <a class="link" href="about.html">Notre méthode →</a>
+          <div class="kpi" role="listitem">
+            <span class="kpi__value">98%</span>
+            <span class="kpi__label">clients satisfaits</span>
+          </div>
+          <div class="kpi" role="listitem">
+            <span class="kpi__value">72h</span>
+            <span class="kpi__label">expédition moyenne</span>
           </div>
         </div>
-        <div class="split__col visual" aria-hidden="true">
-          <div class="visual__card">
-            <img src="https://images.unsplash.com/photo-1602192509154-0b9001c99ceb?auto=format&fit=crop&w=1400&q=80" alt="Feuillages de coleus panachés" loading="lazy" />
-          </div>
+
+        <div class="cta-row">
+          <a class="btn-primary" href="products.html">Découvrir la collection</a>
+          <a class="link" href="about.html">Notre méthode →</a>
         </div>
       </div>
+
+      <!-- Colonne visuelle avec CARROUSEL -->
+      <div class="split__col visual" aria-hidden="true">
+        
+    <div class="visual__card carousel">
+  <div class="carousel__track">
+    <img src="images/coleusMain.jpg" alt="Coléus RPG" loading="lazy" />
+    <img src="images/coleus1.jpg" alt="Coléus feuillage rouge" loading="lazy" />
+    <img src="images/coleus3.jpg" alt="Coléus panaché vert/rose" loading="lazy" />
+  </div>
+
+  <!-- Flèches navigation -->
+  <button class="carousel__btn prev" aria-label="Image précédente">‹</button>
+  <button class="carousel__btn next" aria-label="Image suivante">›</button>
+
+  <!-- Points indicateurs -->
+  <div class="carousel__dots"></div>
+</div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- SECTION — Produits mis en avant modernisée -->
   <section class="section section--featured" aria-labelledby="fav-title">
@@ -144,16 +157,7 @@
     <p>&copy; 2025 Coleus Boutique. Tous droits réservés.</p>
   </footer>
 
-  <script>
-    // Menu burger accessible
-    const btn = document.querySelector('.nav-toggle');
-    const links = document.getElementById('nav-links');
-    btn?.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      links.classList.toggle('open');
-      document.body.classList.toggle('no-scroll', !expanded);
-    });
-  </script>
+<script src="assets/app.js"></script>
+
 </body>
 </html>

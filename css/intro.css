@@ -33,6 +33,27 @@
 .bullets li { position: relative; padding-left: 28px; margin: 10px 0; color: var(--text); line-height: 1.6; }
 .bullets li:before { content: ""; position: absolute; left: 0; top: .55em; width: 10px; height: 10px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 4px rgba(25,135,84,.12); }
 
+
+
+/*=======CAROUSEl =====*/
+.carousel { position: relative; overflow: hidden; border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+.carousel__track { display: flex; transition: transform 0.5s ease; }
+.carousel__track img { min-width: 100%; height: auto; display: block; object-fit: cover; }
+
+.carousel__btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.85); border: 0; width: 40px; height: 40px;
+  border-radius: 50%; font-size: 22px; color: #184c36; cursor: pointer;
+}
+.carousel__btn.prev { left: 10px; }
+.carousel__btn.next { right: 10px; }
+
+.carousel__dots { display: flex; justify-content: center; gap: 8px; margin: 10px 0 0; }
+.carousel__dots button { width: 10px; height: 10px; border-radius: 50%; border: 0; background: #cfd4d1; cursor: pointer; }
+.carousel__dots button.active { background: #198754; }
+
+
+
 /* KPIs */
 .kpis { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin: 18px 0 22px; }
 .kpi { background: linear-gradient(#fff, #fff) padding-box, linear-gradient(180deg, #eef2f0, #fafcfa) border-box; border: 1px solid transparent; border-radius: 14px; padding: 14px 16px; text-align: center; }
@@ -57,6 +78,13 @@
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .tag { --t: rgba(25,135,84,.10); background: var(--t); color: var(--ink); border: 1px solid rgba(25,135,84,.18); padding: 6px 10px; border-radius: 999px; font-size: .82rem; }
 
+
+/* =========================================================
+   ACCUEIL — styles spécifiques à index.html
+   ========================================================= */
+/* utilitaire accessibilité */
+.skip-link { position: absolute; left: -999px; top: auto; }
+.skip-link:focus { left: 12px; top: 12px; background:#198754; color:#fff; padding:8px 12px; border-radius:8px; z-index:1000; }
 
 
 /* Focus states */
