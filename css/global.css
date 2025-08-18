@@ -1,0 +1,57 @@
+/* Styles de base globaux */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #fafafa;
+  color: #222;
+}
+h1, h2, h3 {
+  margin: 0 0 15px;
+  font-weight: bold;
+}
+a { text-decoration: none; color: inherit; }
+
+/* NAV commune améliorée */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 14px 20px;
+  background: #ffffffcc;
+  backdrop-filter: saturate(160%) blur(8px);
+  border-bottom: 1px solid #ecefee;
+}
+.nav a {
+  color: #2b2b2b;
+  font-weight: 600;
+}
+.nav a.active,
+.nav a:hover {
+  color: #198754;
+}
+
+/* Bouton primaire commun */
+.btn-primary {
+  display: inline-block;
+  background: #198754;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 6px 16px rgba(25,135,84,.18);
+}
+.btn-primary:hover { background: #177a4b; }
+
+/* Footer commun (inchangé, mais harmonisé) */
+.footer {
+  background: #184c36;
+  color: #ffffff;
+  text-align: center;
+  padding: 22px 16px;
+  margin-top: 56px;
+}

@@ -1,0 +1,9 @@
+/mon-site
+ ├── index.html
+ └── css/
+      ├── base.css        (styles globaux : reset, polices, boutons, couleurs…)
+      ├── nav.css         (menu de navigation)
+      ├── hero.css        (section d’accueil)
+      ├── about.css       (section présentation)
+      ├── featured.css    (produits phares)
+      ├── footer.css      (pied de page)
