@@ -91,7 +91,67 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 6px 16px rgba(25,135,84,.18);
 }
 .btn-primary:hover { background: #177a4b; }
+/* --- Burger en X (animation) --- */
+.nav-toggle { position: relative; width: 42px; height: 42px; border-radius: 10px; }
+.nav-toggle .bar {
+  transition: transform .25s ease, opacity .2s ease, background .2s ease;
+  will-change: transform, opacity;
+}
+.nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
+/* --- Ombre quand on scrolle --- */
+.site-header.scrolled { box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+
+/* --- Mobile nav améliorée --- */
+@media (max-width: 760px) {
+  .nav-toggle { display: inline-block; }
+
+  .nav-links {
+    position: fixed;
+    top: 56px; left: 0; right: 0;
+    background: #fff;
+    border-top: 1px solid #eef0ee;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+
+    /* Animations */
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    overflow: hidden;
+    transition: max-height .28s ease, opacity .22s ease, transform .28s ease;
+    z-index: 60;
+  }
+  .nav-links.open {
+    max-height: 60vh;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav-links li { width: 100%; border-bottom: 1px solid #f4f6f4; }
+  .nav-links li:last-child { border-bottom: 0; }
+  .nav-links a { display: block; padding: 12px 16px; text-align: center; }
+
+  /* Fond sombre derrière le menu quand ouvert (réutilise body.no-scroll) */
+  body.no-scroll::after {
+    content: "";
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.28);
+    backdrop-filter: blur(2px);
+    z-index: 55;         /* juste derrière .nav-links (60) */
+    pointer-events: none;
+  }
+} /* <--- garde bien cette accolade de fin */
 /* Footer commun (inchangé, mais harmonisé) */
 .footer {
   background: #184c36;
