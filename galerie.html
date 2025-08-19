@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galerie – Coléus</title>
+  <style>
+    :root{
+      --bg:#0b0c10; --card:#15161b; --muted:#777; --text:#f3f3f3;
+      --primary:#4f46e5; --primary-2:#4338ca; --outline:#2b2d33;
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial; background:var(--bg); color:var(--text)}
+    header{padding:28px 20px 10px; max-width:1100px; margin:auto}
+    h1{margin:0 0 6px; font-size:clamp(22px,3.5vw,34px)}
+    p.lead{margin:0; color:var(--muted)}
+    .grid{display:grid; gap:18px; padding:20px; max-width:1100px; margin:auto;
+      grid-template-columns:repeat(auto-fill, minmax(220px,1fr));}
+    .card{background:var(--card); border:1px solid var(--outline); border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column}
+    .card img{width:100%; aspect-ratio:4/3; object-fit:cover}
+    .card .content{padding:12px 14px 14px; display:flex; flex-direction:column; gap:8px}
+    .title{font-weight:600}
+    .price{color:#d1fae5; font-weight:700}
+    .muted{color:var(--muted); font-size:14px}
+    .actions{display:flex; gap:8px; margin-top:6px}
+    .btn{appearance:none; border:none; border-radius:12px; padding:10px 12px; font-weight:600; cursor:pointer; width:100%}
+    .btn.primary{background:var(--primary); color:white}
+    .btn.primary:active{transform:translateY(1px)}
+    .btn.primary:hover{background:var(--primary-2)}
+    .btn.outline{background:transparent; border:1px solid var(--outline); color:var(--text)}
+    .badge{font-size:12px; padding:3px 8px; border-radius:999px; border:1px solid var(--outline); color:var(--muted); align-self:flex-start}
+    /* Modale */
+    .modal-backdrop{position:fixed; inset:0; background:#0008; display:none; align-items:center; justify-content:center; padding:20px; z-index:50}
+    .modal{background:var(--card); border:1px solid var(--outline); border-radius:18px; max-width:720px; width:100%; overflow:hidden}
+    .modal header{display:flex; justify-content:space-between; align-items:center; padding:14px 16px; border-bottom:1px solid var(--outline)}
+    .modal .body{display:grid; gap:14px; grid-template-columns:1fr 1fr; padding:16px}
+    .modal img{width:100%; border-radius:12px; aspect-ratio:4/3; object-fit:cover}
+    .close{background:transparent; border:1px solid var(--outline); color:var(--text); border-radius:10px; padding:6px 10px; cursor:pointer}
+    @media (max-width:640px){ .modal .body{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  
+  
+  <!-- -->
+
+  <main class="grid" id="gallery">
+    <!-- Exemple de carte -->
+    <article class="card" data-id="c-101" data-name="Coléus Rouge Cardinal" data-price="15" data-img="images/coleus-rouge.jpg" data-desc="Feuillage rouge profond, idéal en pot ou massif.">
+      <img src="images/coleus-rouge.jpg" alt="Coléus Rouge Cardinal" onerror="this.src='https://picsum.photos/seed/coleus1/800/600'">
+      <div class="content">
+        <span class="badge">Plante</span>
+        <div class="title">Coléus Rouge Cardinal</div>
+        <div class="muted">Pot 10–12 cm</div>
+        <div class="price">15 €</div>
+        <div class="actions">
+          <button class="btn outline" data-action="details">En savoir plus</button>
+          <button class="btn primary" data-action="pay">Payer</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-id="c-102" data-name="Coléus Lime Splash" data-price="15" data-img="images/coleus-lime.jpg" data-desc="Vert anis panaché, très lumineux à mi‑ombre.">
+      <img src="images/coleus-lime.jpg" alt="Coléus Lime Splash" onerror="this.src='https://picsum.photos/seed/coleus2/800/600'">
+      <div class="content">
+        <span class="badge">Plante</span>
+        <div class="title">Coléus Lime Splash</div>
+        <div class="muted">Pot 10–12 cm</div>
+        <div class="price">15 €</div>
+        <div class="actions">
+          <button class="btn outline" data-action="details">En savoir plus</button>
+          <button class="btn primary" data-action="pay">Payer</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-id="g-201" data-name="Graines Coléus Mix Rares" data-price="5" data-img="images/graines-coleus.jpg" data-desc="Mélange de lignes rares issues de semis maison.">
+      <img src="images/graines-coleus.jpg" alt="Graines Coléus Mix Rares" onerror="this.src='https://picsum.photos/seed/coleus3/800/600'">
+      <div class="content">
+        <span class="badge">Graines</span>
+        <div class="title">Graines Coléus Mix Rares</div>
+        <div class="muted">Sachet ~120 graines</div>
+        <div class="price">5 €</div>
+        <div class="actions">
+          <button class="btn outline" data-action="details">En savoir plus</button>
+          <button class="btn primary" data-action="pay">Payer</button>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Modale détails -->
+  <div class="modal-backdrop" id="modalBack">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header>
+        <h2 id="modalTitle" style="margin:0;font-size:18px">Détails</h2>
+        <button class="close" id="closeModal">Fermer</button>
+      </header>
+      <div class="body">
+        <img id="modalImg" alt="">
+        <div>
+          <h3 id="modalName" style="margin:0 0 6px"></h3>
+          <p id="modalDesc" class="muted" style="margin:0 0 10px"></p>
+          <div class="price" id="modalPrice" style="margin:10px 0 16px"></div>
+          <button class="btn primary" id="modalPay">Payer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const gallery = document.getElementById('gallery');
+    const modalBack = document.getElementById('modalBack');
+    const modalImg = document.getElementById('modalImg');
+    const modalName = document.getElementById('modalName');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalPayBtn = document.getElementById('modalPay');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    function openModal(product){
+      modalImg.src = product.img;
+      modalImg.alt = product.name;
+      modalName.textContent = product.name;
+      modalDesc.textContent = product.desc || '';
+      modalPrice.textContent = product.price.toFixed(2).replace('.', ',') + ' €';
+      modalPayBtn.onclick = () => pay(product);
+      modalBack.style.display = 'flex';
+    }
+    function closeModal(){ modalBack.style.display = 'none'; }
+
+    function getProductFromCard(card){
+      return {
+        id: card.dataset.id,
+        name: card.dataset.name,
+        price: Number(card.dataset.price),
+        img: card.dataset.img || card.querySelector('img')?.src,
+        desc: card.dataset.desc || ''
+      };
+    }
+
+    function pay(product){
+      // Stocke l’article pour le futur fichier panier.html
+      localStorage.setItem('checkoutItem', JSON.stringify(product));
+      // Redirection (vous créerez panier.html ensuite)
+      window.location.href = 'panier.html';
+    }
+
+    gallery.addEventListener('click', (e)=>{
+      const btn = e.target.closest('button');
+      if(!btn) return;
+      const card = e.target.closest('.card');
+      const product = getProductFromCard(card);
+
+      if(btn.dataset.action === 'details'){
+        openModal(product);
+      } else if(btn.dataset.action === 'pay'){
+        pay(product);
+      }
+    });
+
+    modalBack.addEventListener('click', (e)=>{ if(e.target === modalBack) closeModal(); });
+    closeModalBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+  </script>
+</body>
+</html>m
