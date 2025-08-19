@@ -1,19 +1,5 @@
 /* =========================================================
-   VARIABLES
-   ========================================================= */
-:root {
-  --brand: #198754;
-  --ink: #184c36;
-  --bg: #fafafa;
-  --text: #25332d;
-  --muted: #66736e;
-  --card: #fff;
-  --ring: rgba(25,135,84,.35);
-}
-
-
-/* =========================================================
-   SECTIONS / LAYOUT GÉNÉRAL
+   SECTIONS / LAYOUT GÉNÉRAL INDEX.HTML
    ========================================================= */
 .section { padding: clamp(64px, 8vw, 100px) 20px; background: #0000; }
 .section--featured { background: linear-gradient(180deg, #000 0%, #ffffff 100%); }
@@ -52,7 +38,7 @@
   width: 72px;
   height: 3px;
   background: var(--brand);
-  border-radius: 2px;
+  border-radius: 2px;m
   margin-top: 10px;
 }
 .section__header--center .section__title:after { margin: 10px auto 0; }
@@ -95,7 +81,7 @@
 /*=======CAROUSEl =====*/
 .carousel {
   position: relative;
-  overflow:5;
+  overflow:hidden;
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
   background:#184c36;
@@ -186,7 +172,7 @@
 }
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 26px solid #f1f;
+  box-shadow: 0 12px 26px #f1f;
   border-color: #e1eae6;
 }
 
