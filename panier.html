@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panier | Coléus</title>
+
+  <!-- Feuilles de style -->
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/navfoot.css" />
+  <link rel="stylesheet" href="css/produits.css" />
+</head>
+<body data-page="cart">
+  <!-- HEADER + NAV -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Coléus</a>
+      <ul class="nav-links">
+        <li><a href="galerie.html">Galerie</a></li>
+        <li>
+          <a href="panier.html" aria-current="page" class="panier-link">
+            🧺 Panier <span id="cart-count" class="badge">0</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+    <h1 class="page-title">Votre panier</h1>
+
+    <!-- Panier vide -->
+    <section id="cart-empty" class="cart-empty" hidden>
+      <p>Votre panier est vide.</p>
+      <a href="galerie.html" class="btn-primary">Voir la galerie</a>
+    </section>
+
+    <!-- Panier rempli -->
+    <section id="cart-section" class="cart-section" hidden>
+      <div id="cart-list" class="cart-list" aria-live="polite"></div>
+
+      <aside class="cart-summary">
+        <div class="summary-row">
+          <span>Sous-total</span><strong id="subtotal">0 €</strong>
+        </div>
+        <div class="summary-row">
+          <span>Frais estimés</span><strong id="fees">0 €</strong>
+        </div>
+        <div class="summary-row total">
+          <span>Total</span><strong id="total">0 €</strong>
+        </div>
+        <button id="checkout-btn" class="btn-primary btn-full">Payer</button>
+        <button id="clear-btn" class="btn-ghost btn-full">Vider le panier</button>
+        <p class="hint">⚠️ Démo front : le bouton « Payer » ne déclenche pas de paiement réel.</p>
+      </aside>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Coléus — Tous droits réservés.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/app.js"></script>
+</body>
+</html>

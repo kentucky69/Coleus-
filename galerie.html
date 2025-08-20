@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galerie | Coléus</title>
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/navfoot.css" />
+  <link rel="stylesheet" href="css/produits.css" />
+</head>
+<body data-page="gallery">
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Coléus</a>
+      <ul class="nav-links">
+        <li><a href="galerie.html" aria-current="page">Galerie</a></li>
+        <li><a href="panier.html" class="panier-link">🧺 Panier <span id="cart-count" class="badge">0</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Nos coléus</h1>
+    <p class="page-subtitle">Sélectionne tes variétés favorites, ajoute au panier et règle dans la page dédiée.</p>
+
+    <!-- Grille produits (render JS) -->
+    <section id="product-grid" class="product-grid" aria-live="polite">
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Coléus — Tous droits réservés.</p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

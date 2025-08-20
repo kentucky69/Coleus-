@@ -1,9 +1,24 @@
-/mon-site
- ├── index.html
- └── css/
-      ├── base.css        (styles globaux : reset, polices, boutons, couleurs…)
-      ├── nav.css         (menu de navigation)
-      ├── hero.css        (section d’accueil)
-      ├── about.css       (section présentation)
-      ├── featured.css    (produits phares)
-      ├── footer.css      (pied de page)
+Coleus-/
+│── Structure.txt
+│── index.html
+│── galerie.html
+│
+├── assets/
+│   └── app.js
+│
+├── css/
+│   ├── global.css
+│   ├── intro.css
+│   ├── produits.css
+│   └── navfoot.css
+│
+└── images/
+    ├── coleus1.jpg
+    ├── coleus3.jpg
+    ├── coleus3 (1).jpg
+    ├── coleus4.jpg
+    ├── coleus5.jpg
+    ├── coleus6.jpg
+    ├── coleus7.jpg
+    ├── coleus8.jpg
+    └── coleusMain.jpg

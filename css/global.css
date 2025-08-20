@@ -1,6 +1,9 @@
 /* =========================================================
+   BOUTON PRINCIPAL
+   Bouton réutilisable pour les appels à l'action, centralisé ici
+   =======================================================
    VARIABLES
-   ========================================================= */
+========= */
 :root {
   --brand: #198754;
   --ink: #184c36;
@@ -17,6 +20,7 @@ body {
   font-family: 'Segoe UI', Tahoma, sans-serif;
   background: #fafafa;
   color: #222;
+  
 }
 h1, h2, h3 {
   margin: 0 0 15px;
@@ -24,3 +28,25 @@ h1, h2, h3 {
 }
 a { text-decoration: none; color: inherit; }
 
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  color: #fff;
+  /* Dégradé basé sur la couleur de marque */
+  background: linear-gradient(135deg, var(--brand), #146c43);
+  /* Ombre douce autour du bouton */
+  box-shadow: 0 6px 16px rgba(25, 135, 84, 0.18);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+/* Effets au survol du bouton principal */
+.btn-primary:hover {
+  /* Inversion du dégradé pour l'effet dynamique */
+  background: linear-gradient(135deg, #146c43, var(--brand));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(25, 135, 84, 0.25);
+}
