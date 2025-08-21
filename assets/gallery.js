@@ -50,7 +50,7 @@ const CATALOG = [
     desc: "Feuillage bicolore intense. Contraste de rouge profond et de vert brillant."
   },
   {
-    id: "c31", name: "Coléus Écarlate+", price: 18, img: "images/coleus3 (1).jpg", type: "plante", pop: 6,
+    id: "c31", name: "Coléus Écarlate+", price: 18, img: "images/coleus3.jpg", type: "plante", pop: 6,
     desc: "Version aux feuilles plus grandes et motifs marqués, pour un effet tropical assuré."
   },
   {
@@ -149,11 +149,11 @@ function glShort(text, n = 90) {
   return text.length > n ? `${text.slice(0, n)}…` : text;
 }
 
-// Template d’une carte produit
+// Template d’une carte produit (version corrigée)
 function glCardTemplate(p) {
   return `
     <div class="gallery-card" data-id="${p.id}">
-      <img src="${p.img}" alt="${p.name}" />
+      <img src="${encodeURI(p.img)}" alt="${p.name}" loading="lazy" />
       <div class="gallery-card-body">
         <span class="qty-chip" style="display:none"></span>
         <h3 class="gallery-card-title">${p.name}</h3>
@@ -171,15 +171,25 @@ function glCardTemplate(p) {
   `;
 }
 
-// Filtres / Tri / Recherche
-function glFilterSortSearch() {
-  const query = ($id("gl-search")?.value || "").trim().toLowerCase();
-  const type  = $id("gl-filter")?.value || "all";
-  const sort  = $id("gl-sort")?.value || "pop";
+// Modal de détails (version corrigée)
+function showDetails(productId) {
+  const p = CATALOG.find(item => item.id === productId);
+  if (!p) return;
 
-  let list = CATALOG.slice();
-  if (type !== "all") list = list.filter(p => p.type === type);
-  if (query) list = list.filter(p => p.name.toLowerCase().includes(query));
+  $id("modal-img").src = encodeURI(p.img);
+  $id("modal-img").alt = p.name;
+  $id("modal-title").textContent = p.name;
+  $id("modal-type").textContent = (p.type === "graines") ? "Sachet de graines" : "Plante";
+  $id("modal-description").textContent = p.desc;
+  $id("modal-price").textContent = GL_EUR(p.price);
+
+  const addButton = $id("modal-add");
+  addButton.dataset.id = p.id;
+
+  const modal = $id("details-modal");
+  if (modal) modal.hidden = false;
+}
+
 
   switch (sort) {
     case "price-asc":  list.sort((a,b)=>a.price-b.price); break;

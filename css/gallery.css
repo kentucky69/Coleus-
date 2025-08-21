@@ -58,6 +58,17 @@
 }
 
 /* CARDS */
+
+/* Ajustement images galerie */
+#product-grid img,
+#modal-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 400px; /* tu ajustes selon ton design */
+  display: block;
+}
+
 .gl-card {
   background: var(--gl-card);
   border: 1px solid var(--gl-border);
@@ -126,6 +137,7 @@
   color: #fff;
   border-radius: 999px;
 }
+
 
 
 /* RESPONSIVE */
