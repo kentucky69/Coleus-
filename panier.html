@@ -8,20 +8,22 @@
   <!-- Feuilles de style -->
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/navfoot.css" />
-  <link rel="stylesheet" href="css/produits.css" />
+  <link rel="stylesheet" href="css/panier.css" />
 </head>
 <body data-page="cart">
   <!-- HEADER + NAV -->
-  <header class="site-header">
-    <nav class="nav">
-      <a href="index.html" class="logo">Coléus</a>
-      <ul class="nav-links">
+   <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="index.html" aria-label="Accueil Coleus Boutique">Coleus<span>Boutique</span></a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <ul id="nav-links" class="nav-links">
+        <li><a href="index.html" aria-current="page">Accueil</a></li>
         <li><a href="galerie.html">Galerie</a></li>
-        <li>
-          <a href="panier.html" aria-current="page" class="panier-link">
-            🧺 Panier <span id="cart-count" class="badge">0</span>
-          </a>
-        </li>
+        <li><a href="panier.html" class="panier-link">🧺 Panier <span id="cart-count" class="badge">0</span></a></li>
       </ul>
     </nav>
   </header>
@@ -58,8 +60,8 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Coléus — Tous droits réservés.</p>
+  <footer class="footer">
+    <p>&copy; 2025 Coleus Boutique. Tous droits réservés.</p>
   </footer>
 
   <!-- Scripts -->

@@ -113,6 +113,21 @@
   z-index: 50; font-weight: 600; font-size: .95rem;
 }
 
+/* Pastille quantité sur la carte */
+/* Pastille quantité sur la carte */
+.qty-chip {
+  display: none;
+  align-self: flex-start;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: #111827;
+  color: #fff;
+  border-radius: 999px;
+}
+
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .gl-toolbar { grid-template-columns: 1fr 1fr; }
