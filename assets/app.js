@@ -59,7 +59,7 @@ btn?.addEventListener('click', () => {
   const CATALOG = [
     { id: "c1",  name: "Coléus Rouge",        price: 15,  img: "images/coleus1.jpg",       type: "plante" },
     { id: "c3",  name: "Coléus Écarlate",     price: 15,  img: "images/coleus3.jpg",       type: "plante" },
-    { id: "c31", name: "Coléus Écarlate+ ",   price: 18,  img: "images/coleus3 (1).jpg",   type: "plante" },
+    { id: "c31", name: "Coléus Écarlate+ ",   price: 18,  img: "images/coleus6.jpg",   type: "plante" },
     { id: "c4",  name: "Coléus Lime",         price: 12,  img: "images/coleus4.jpg",       type: "plante" },
     { id: "c5",  name: "Coléus Bordeaux",     price: 20,  img: "images/coleus5.jpg",       type: "plante" },
     { id: "c6",  name: "Coléus Tricolore",    price: 22,  img: "images/coleus6.jpg",       type: "plante" },
@@ -203,7 +203,7 @@ btn?.addEventListener('click', () => {
     updateCartBadge();
 
     // Rendu auto selon la page (détecte les éléments présents)
-    if ($id("product-grid")) renderGallery();
+    if ($id("product-grid") && document.body?.dataset.page !== "galerie") {  renderGallery(); }
     if ($id("cart-section") || $id("cart-empty")) renderCart();
 
     // Année footer (optionnel)

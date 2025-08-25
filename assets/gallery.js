@@ -50,7 +50,7 @@ const CATALOG = [
     desc: "Feuillage bicolore intense. Contraste de rouge profond et de vert brillant."
   },
   {
-    id: "c31", name: "Coléus Écarlate+", price: 18, img: "images/coleus3.jpg", type: "plante", pop: 6,
+    id: "c31", name: "Coléus Écarlate+", price: 18, img: "images/coleus8.jpg", type: "plante", pop: 6,
     desc: "Version aux feuilles plus grandes et motifs marqués, pour un effet tropical assuré."
   },
   {
